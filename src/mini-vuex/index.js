@@ -24,7 +24,7 @@ class Store {
     //  2.遍历所有的getters的key,将对应的key注册到this.getter对象中,定义一个get属性,返回key所对应的getters中方法的执行结果,并传入state
     Object.keys(getters).forEach(key => {
       Object.defineProperty(this.getters, key, {
-        get: () => getters[key][(state)]
+        get: () => getters[key](state)
       })
     })
 
